@@ -1,1 +1,1 @@
-# hadoop-cluster-with-docker
+# Run Hadoop Cluster within Docker
