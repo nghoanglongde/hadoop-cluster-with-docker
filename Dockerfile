@@ -36,6 +36,7 @@ RUN mv /tmp/ssh_config ~/.ssh/config && \
 
 # remove CRLF in file slaves
 RUN sed -i 's/\r$//g' $HADOOP_HOME/etc/hadoop/slaves
+RUN sed -i 's/\r$//g' $HADOOP_HOME/etc/hadoop/hadoop-env.sh
 
 # format namenode
 RUN /usr/local/hadoop/bin/hdfs namenode -format
