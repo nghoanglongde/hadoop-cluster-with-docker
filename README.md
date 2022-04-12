@@ -63,4 +63,5 @@ hdfs dfs -ls /
 ```
 ### 7. access ports
 http://localhost:50070/
+
 http://localhost:8088/
