@@ -40,12 +40,27 @@ root@hadoop-master:~#
 + It started 1 master node and 2 slaves node
 + You will get into the /root directory of hadoop-master container
 
-### 5. start hadoop
+### 5. start and stop hadoop
 ```
-start-all.sh
-```
+# when you are in hadoop-master, run this command
 
-### 6. stop hadoop
-```
+# for starting hadoop
+start-all.sh
+
+# for stopping hadoop
 stop-all.sh
 ```
+### 6. put example file to cluster
+```
+# when you are in hadoop-master, run this command
+
+echo "demo file" >>> demo.txt
+
+hdfs dfs -put demo.txt .
+
+# check the file exists in cluster at [/] directory
+hdfs dfs -ls /
+```
+### 7. access ports
+http://localhost:50070/
+http://localhost:8088/

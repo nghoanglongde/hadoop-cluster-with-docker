@@ -13,7 +13,7 @@ docker run -itd \
             -p 8088:8088 \
             --name hadoop-master \
             --hostname hadoop-master \
-            hadoop-cluster:latest &> /dev/null
+            ghcr.io/nghoanglong/hadoop-cluster-with-docker/hadoop-cluster:latest &> /dev/null
 
 
 # start hadoop slave container
@@ -26,7 +26,7 @@ do
                 --net=hadoop \
                 --name hadoop-slave$i \
                 --hostname hadoop-slave$i \
-                hadoop-cluster:latest &> /dev/null
+                ghcr.io/nghoanglong/hadoop-cluster-with-docker/hadoop-cluster:latest &> /dev/null
 	i=$(( $i + 1 ))
 done 
 
