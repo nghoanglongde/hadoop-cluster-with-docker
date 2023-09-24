@@ -1,0 +1,51 @@
+version: '3'
+
+services:
+  hadoop-namenode:
+    container_name: hadoop-namenode
+    build: .
+    networks:
+      - hadoop
+    mem_limit: 1g
+    cpus: 1
+    ports:
+      - "50070:50070"
+      - "8088:8088"
+    hostname: hadoop-namenode
+    command: ["sh", "-c", "service ssh start; ./start-cluster.sh; tail -f /dev/null"]
+  hadoop-datanode1:
+    container_name: hadoop-datanode1
+    build: .
+    mem_limit: 0.5g
+    cpus: 2
+    networks:
+      - hadoop
+    hostname: hadoop-datanode1
+    depends_on:
+      - hadoop-namenode
+    command: ["sh", "-c", "service ssh start; tail -f /dev/null"]
+  hadoop-datanode2:
+    container_name: hadoop-datanode2
+    build: .
+    mem_limit: 0.5g
+    cpus: 2
+    networks:
+      - hadoop
+    hostname: hadoop-datanode2
+    depends_on:
+      - hadoop-namenode
+    command: ["sh", "-c", "service ssh start; tail -f /dev/null"]
+  hadoop-datanode3:
+    container_name: hadoop-datanode3
+    build: .
+    mem_limit: 0.5g
+    cpus: 2
+    networks:
+      - hadoop
+    hostname: hadoop-datanode3
+    depends_on:
+      - hadoop-namenode
+    command: ["sh", "-c", "service ssh start; tail -f /dev/null"]
+networks:
+  hadoop:
+    driver: bridge

@@ -28,7 +28,4 @@ do
                 --hostname hadoop-slave$i \
                 ghcr.io/nghoanglong/hadoop-cluster-with-docker/hadoop-cluster:latest &> /dev/null
 	i=$(( $i + 1 ))
-done 
-
-# get into hadoop master container
-docker exec -it hadoop-master bash
+done
